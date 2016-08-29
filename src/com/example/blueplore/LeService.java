@@ -18,7 +18,7 @@ public class LeService extends Service {
     public Le le;
     public BleMultiAdvController bleMultiAdvController;
     public BleBatchScanController bleBatchScanController;
-    
+    public BlePhyTestController blePhyTestController;
     
     //used for test
     void showToast() {
@@ -32,6 +32,7 @@ public class LeService extends Service {
         le = new Le();
         bleMultiAdvController = new BleMultiAdvController();
         bleBatchScanController = new BleBatchScanController();
+        blePhyTestController = new BlePhyTestController();
     }
 
     @Override

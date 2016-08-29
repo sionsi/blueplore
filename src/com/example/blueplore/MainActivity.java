@@ -149,11 +149,11 @@ public class MainActivity extends Activity
             case 3:
                 getMenuInflater().inflate(R.menu.section4, menu);
                 break;
-            /*
+
             case 4:
-                getMenuInflater().inflate(R.menu.section5, menu);
+                getMenuInflater().inflate(R.menu.section10, menu);
                 break;
-            */
+
             default:
                 Log.e(TAG, "err: mCurrentSelectedSection=" + mCurrentSelectedSection);
             }
@@ -278,12 +278,12 @@ public class MainActivity extends Activity
                     fragment = new RemoteGattClientFragment();
                     Log.d(TAG, "["+Thread.currentThread().getStackTrace()[2].getFileName()+","+Thread.currentThread().getStackTrace()[2].getLineNumber()+","+Thread.currentThread().getStackTrace()[2].getMethodName()+"]");
                     break;
-                /*
+
                 case 5:
-                    fragment = new PlaceholderFragment();
+                    fragment = new PhyTestFragment();
                     Log.d(TAG, "["+Thread.currentThread().getStackTrace()[2].getFileName()+","+Thread.currentThread().getStackTrace()[2].getLineNumber()+","+Thread.currentThread().getStackTrace()[2].getMethodName()+"]");
                     break;
-                */
+
                 default:
                     Log.e(TAG, "sectionNumber = "+ sectionNumber);
                     return null;
@@ -349,6 +349,7 @@ public class MainActivity extends Activity
             leService.le.onCreate(MainActivity.this);
             leService.bleMultiAdvController.onCreate(MainActivity.this);
             leService.bleBatchScanController.onCreate(MainActivity.this);
+            leService.blePhyTestController.onCreate(MainActivity.this);
 
             onNavigationDrawerItemSelected(0);//create real section1, the first section fragment;
             

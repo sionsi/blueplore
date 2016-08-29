@@ -500,11 +500,13 @@ class LeGattServerCallback extends BluetoothGattServerCallback {
             leDevice.name = device.getName() == null ? "nameUnknown" : device.getName();
             leDevice.deviceState = Macro.BleDeviceStateConnected;
             mMainActivity.leService.le.remoteGattClientList.add(leDevice);
+            mMainActivity.leService.blePhyTestController.addPhyTestDevice(device);
             Log.e(TAG, "add to remoteGattClientList:" + device.getName() + "," + device.getAddress());/*bt dbg*/
             
             break;
         case BluetoothProfile.STATE_DISCONNECTED:
             mMainActivity.leService.le.deleteRemoteGattClientByAddr(device.getAddress());
+            mMainActivity.leService.blePhyTestController.removePhyTestDevice(device);
             break;
         }
         
@@ -1096,6 +1098,63 @@ class BleBatchScanController {
 
     public BleBatchScanConfig selectConfig(int idx) {
         return batchScanConfigList.get(idx);
+    }
+}
+
+class BlePhyTestConfig {
+    private static final String TAG = "BlePhyTestConfig";
+    private MainActivity mMainActivity;
+    private int connection_status;
+    private BluetoothDevice connected_device;
+    private int tx_phy;
+    private int rx_phy;
+    
+    public BlePhyTestConfig(BluetoothDevice dev) {
+    	connected_device = dev;
+    	tx_phy = 1;
+    	rx_phy = 1;
+    }
+    
+    public BlePhyTestConfig(BluetoothDevice dev, int tx, int rx) {
+    	connected_device = dev;
+    	tx_phy = tx;
+    	rx_phy = rx;
+    }
+    
+    public BluetoothDevice getDevice() {
+    	return connected_device;
+    }
+}
+
+
+class BlePhyTestController {
+    private static final String TAG = "BlePhyTestController";
+    public List<BlePhyTestConfig> mPhyTestList = new ArrayList<BlePhyTestConfig>();//used within BlePhyTestConfig
+    public MainActivity mMainActivity;
+
+    public void onCreate(MainActivity mainActivity) {
+        mMainActivity = mainActivity;
+        
+    }
+
+	public void addPhyTestDevice(BluetoothDevice device) {
+		BlePhyTestConfig conf = new BlePhyTestConfig(device);
+		
+        mPhyTestList.add(conf);
+    }
+	
+	public void removePhyTestDevice(BluetoothDevice device) {
+		BlePhyTestConfig conf = new BlePhyTestConfig(device);
+		int xx = 0;
+		for(xx = 0; xx < mPhyTestList.size(); xx++) {
+			if(mPhyTestList.get(xx).getDevice().equals(device)) {
+				Log.d(TAG, "FOUND device to remove:" + device.getAddress().toString());
+				mPhyTestList.remove(xx);
+			}
+		}
+        if(xx == mPhyTestList.size()) {
+        	Log.e(TAG, "Not Find device to remove:" + device.getAddress().toString());
+        }
     }
 }
 

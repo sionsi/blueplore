@@ -56,7 +56,7 @@ public class Macro {
 	
 	
 	
-	
+	public static final int PhyMaxNumber = 4;
 	
 	
 	

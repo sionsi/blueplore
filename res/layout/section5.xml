@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/section5_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView android:id="@+id/section5_connection_status" 
+        	android:text="disconnected"
+            android:gravity="center"
+            android:layout_marginTop="10.0sp"
+            style="@style/SubHeadingStyle"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+    
+    <View android:id="@+id/section5_blank_view"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            style="@style/HorizontalLineStyle" />
+
+    <TextView android:id="@+id/section5_current_phy" 
+        	android:text="1M"
+            android:gravity="center"
+            android:layout_marginTop="10.0sp"
+            style="@style/SubHeadingStyle"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+    
+    <Spinner android:id="@+id/section5_set_phy_spinner" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+    
+</LinearLayout>
