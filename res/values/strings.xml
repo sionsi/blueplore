@@ -21,8 +21,9 @@
     <string name="action_ble_scan_stop">stop scan</string>
     <string name="action_exit">Exit</string>
     <string name="action_bt_adapter">BT Adapter</string>
-
-
-    
+    <string name="action_set_phy">Set PHY</string>
+    <string name="action_get_phy">Get PHY</string>
+    <string name="action_set_channel">Set Channel</string>
+    <string name="action_get_channel">Get Channel</string>
     
 </resources>

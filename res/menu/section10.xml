@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.spredtrum.blueplore.MainActivity" >
+
+    <item
+        android:id="@+id/section10_set_phy"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_set_phy"/>
+
+    <item
+        android:id="@+id/section10_read_phy"
+        android:orderInCategory="101"
+        android:showAsAction="never"
+        android:title="@string/action_get_phy"/>
+    
+    <item
+        android:id="@+id/section10_set_channel"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_set_channel"/>
+
+    <item
+        android:id="@+id/section10_get_channel"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_get_channel"/>
+
+</menu>
