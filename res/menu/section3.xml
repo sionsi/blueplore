@@ -1,0 +1,53 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.spredtrum.blueplore.MainActivity" >
+
+    <item
+        android:id="@+id/section3_action_select"
+        android:orderInCategory="10"
+        android:showAsAction="never"
+        android:title="select scan config"/>
+    
+    <item
+        android:id="@+id/section3_action_start"
+        android:orderInCategory="11"
+        android:showAsAction="never"
+        android:title="start scan"/>
+    
+    <item
+        android:id="@+id/section3_action_stop"
+        android:orderInCategory="12"
+        android:showAsAction="never"
+        android:title="stop scan"/>    
+    
+    <item
+        android:id="@+id/section3_action_save"
+        android:orderInCategory="13"
+        android:showAsAction="never"
+        android:title="save config"/>
+    
+    <item
+        android:id="@+id/section3_action_reset"
+        android:orderInCategory="14"
+        android:showAsAction="never"
+        android:title="reset config"/>
+    
+    <item
+        android:id="@+id/section3_action_clear"
+        android:orderInCategory="15"
+        android:showAsAction="never"
+        android:title="clear config"/>
+
+    <item
+        android:id="@+id/action_bt_adapter"
+        android:orderInCategory="101"
+        android:showAsAction="never"
+        android:title="@string/action_bt_adapter"/>
+    
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="110"
+        android:showAsAction="never"
+        android:title="@string/action_exit"/>
+
+</menu>

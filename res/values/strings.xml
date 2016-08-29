@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">blueplore_1.3</string>
+    <string name="title_section1">Le connect</string>
+    <string name="title_section2">Multi adv</string>
+    <string name="title_section3">Batch scan</string>
+    <string name="title_section4">Remote Gatt Client</string>
+    <string name="title_section5">Section 5</string>
+    <string name="title_section6">Section 6</string>
+    <string name="title_section7">Section 7</string>
+    <string name="title_section8">Section 8</string>
+    <string name="title_section9">Section 9</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    
+    
+    <string name="action_ble_scan_start">start scan</string>
+    <string name="action_ble_scan_stop">stop scan</string>
+    <string name="action_exit">Exit</string>
+    <string name="action_bt_adapter">BT Adapter</string>
+
+
+    
+    
+</resources>

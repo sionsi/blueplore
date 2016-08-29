@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/section3_scrollView"
+    android:layout_width="match_parent" 
+    android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin" 
+        android:paddingTop="@dimen/activity_vertical_margin" 
+        android:paddingRight="@dimen/activity_horizontal_margin" 
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <TextView android:id="@+id/section3_batch_scan_textView"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="Batch Scan"
+            style="@style/SubHeadingStyle" />
+        <View android:id="@+id/section3_blank_view"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            style="@style/HorizontalLineStyle" />
+        
+        <TextView android:id="@+id/section3_manufacturerId_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Manufacturer ID(sould be used together with Manu Data)" />
+        <EditText android:id="@+id/section3_manufacturerId_editText" 
+            android:hint="Enter HEX Value eg.75"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_manufacturerData_textView" 
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Manufacturing Data(should be ued together with mnufacturer id)" />
+        <EditText android:id="@+id/section3_manufacturerData_editText" 
+            android:hint="Enter HEX Value eg.75"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_service_uuid_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Service UUID (click text to auto config 16/32/128)" />
+        <EditText android:id="@+id/section3_service_uuid_editText"
+            android:hint="00001801-0000-1000-8000-00805F9B34FB"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Service data(should be used together with Service data uuid)" 
+            style="@style/SubHeadingStyle" />
+        <View android:id="@+id/section3_blank_view1" 
+            android:layout_width="match_parent" 
+            android:layout_height="2.0dip" 
+            style="@style/HorizontalLineStyle" />
+        
+        <TextView android:id="@+id/section3_service_data_uuid_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Service Data UUID (click text to auto config 16)" />
+        <EditText android:id="@+id/section3_service_data_uuid_editText"
+            android:hint="00001801-0000-1000-8000-00805F9B34FB"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+
+        <TextView android:id="@+id/section3_service_data_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Service data(should be used together with Service data uuid)" />
+        <EditText android:id="@+id/section3_service_data_editText"
+            android:hint="Enter HEX Value eg.75"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_dev_addr_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Device Address" />
+        <EditText android:id="@+id/section3_dev_addr_editText"
+            android:hint="01:02:03:AB:CD:EF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_local_name_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Local Name" />
+        <EditText android:id="@+id/section3_local_name_editText"
+            android:hint="ARK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_report_delay_timestamp_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Report delay timestamp" />
+        <EditText android:id="@+id/section3_report_delay_timestamp_editText"
+            android:hint="Delay of report in milliseconds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_scan_type_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Scan Type" />
+        <Spinner android:id="@+id/section3_scan_type_spinner" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView android:id="@+id/section3_cb_type_textView"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:text="Callback Type" />
+        <Spinner android:id="@+id/section3_cb_type_spinner" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+        
+        <TextView
+            android:layout_marginTop="10.0sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan Result"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+        <View android:id="@+id/section3_blank_view2"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            style="@style/HorizontalLineStyle" />
+
+
+        <TextView android:id="@+id/section3_scan_count"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14.0sp"
+            android:hint="Scan Count" />
+        
+        <TextView android:id="@+id/section3_scan_result"
+            android:layout_marginTop="10.0sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14.0sp"
+            android:hint="Scan Result" />
+        
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+
+
+
+

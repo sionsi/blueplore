@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/section4_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView android:text="Connected Remote Gatt Client Device List"
+            android:gravity="center"
+            android:layout_marginTop="10.0sp"
+            style="@style/SubHeadingStyle"
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" />
+    
+    <View android:id="@+id/section4_blank_view"
+            android:layout_width="match_parent"
+            android:layout_height="2.0dip"
+            style="@style/HorizontalLineStyle" />
+        
+    <ListView
+        android:id="@+id/section4_connected_remote_gatt_client_device_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+    
+    
+</LinearLayout>
