@@ -1108,6 +1108,8 @@ class BlePhyTestConfig {
     private BluetoothDevice connected_device;
     private int tx_phy;
     private int rx_phy;
+    private int tx_phy_to_set;
+    private int rx_phy_to_set;
     
     public BlePhyTestConfig(BluetoothDevice dev) {
     	connected_device = dev;
@@ -1131,6 +1133,22 @@ class BlePhyTestConfig {
     
     public int getRxPhy() {
     	return rx_phy;
+    }
+    
+    public void setToSetTxPhy(int tx) {
+    	tx_phy_to_set = tx;
+    }
+    
+    public void setToSetRxPhy(int rx) {
+    	rx_phy_to_set = rx;
+    }
+    
+    public int getToSetTxPhy() {
+    	return tx_phy_to_set;
+    }
+    
+    public int getToSetRxPhy() {
+    	return tx_phy_to_set;
     }
 }
 
@@ -1165,6 +1183,14 @@ class BlePhyTestController {
         if(xx == mPhyDevicetList.size()) {
         	Log.e(TAG, "Not Find device to remove:" + device.getAddress().toString());
         }
+    }
+	
+	public void setPhy(BluetoothDevice dev, int tx, int rx) {
+    	Log.d(TAG, "set phy" + dev.getAddress().toString() +" phy: tx=" + tx + "; rx=" + rx);
+    }
+    
+    public void getPhy(BluetoothDevice dev) {
+    	Log.d(TAG, "get phy:");
     }
 }
 

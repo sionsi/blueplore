@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
     android:layout_width="fill_parent"  
     android:layout_height="fill_parent"  
+    android:gravity="center_vertical"
     android:orientation="vertical" >  
         <TextView
             android:paddingTop="12dip"
@@ -15,10 +16,69 @@
             android:layout_height="wrap_content" 
             android:layout_below="@id/phy_list_device_addr" /> 
             
-        <TextView
+		<TextView
             android:id="@+id/phy_list_current_phy"
             android:layout_width="fill_parent"  
             android:layout_height="wrap_content" 
             android:layout_below="@id/phy_list_device_name" /> 
+        
+		<TextView
+		    android:id="@+id/phy_list_tx_text_view1"
+    		android:text="tx:"
+            android:layout_width="wrap_content"  
+            android:layout_height="30.0sp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/phy_list_current_phy" /> 
+
+            <Spinner
+	            android:id="@+id/phy_list_tx_phy"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_below="@id/phy_list_current_phy"
+	            android:layout_toRightOf="@+id/phy_list_tx_text_view1"
+
+	            android:entries="@array/languages"
+	          />
+            
+		<TextView
+		    android:id="@+id/phy_list_tx_text_view2"
+    		android:text="rx:"
+            android:layout_width="wrap_content"  
+            android:layout_height="30.0sp"
+            android:layout_toLeftOf="@+id/phy_list_rx_phy"
+            android:layout_below="@id/phy_list_current_phy" /> 
+
+	        <Spinner
+	            android:id="@+id/phy_list_rx_phy"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_below="@id/phy_list_current_phy"
+	            android:layout_alignParentRight="true"
+	            android:entries="@array/languages"
+	          />
+
+    	
+		<View android:id="@+id/phy_list_blank_view_1"
+		    android:layout_below="@id/phy_list_tx_phy"
+            android:layout_width="match_parent"
+            android:layout_height="3.0dip" />
+		
+
+	        <Button android:text="Set phy"
+				android:id="@+id/phy_list_set_phy"
+				android:layout_below="@id/phy_list_blank_view_1"
+				android:layout_alignParentLeft="true"
+				android:layout_toLeftOf="@+id/phy_list_get_phy"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent">
+			</Button>
+			<Button android:text="Get phy"
+				android:id="@+id/phy_list_get_phy"
+				android:layout_below="@id/phy_list_blank_view_1"
+				android:layout_alignParentRight="true"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent">
+			</Button>
+
         
 </RelativeLayout>
