@@ -51,6 +51,7 @@ public class MainActivity extends Activity
     public MultiAdvFragment section2Fragment;
     public BatchScanFragment section3Fragment;
     public RemoteGattClientFragment section4Fragment;
+    public PhyTestFragment mPhyFragment;
     
     
 
@@ -91,6 +92,9 @@ public class MainActivity extends Activity
             case 4://section4
                 section4Fragment = (RemoteGattClientFragment)placeholderFragment;
                 break;
+            case 5://section4
+            	mPhyFragment = (PhyTestFragment)placeholderFragment;
+                break;
             default:
                 Log.e(TAG, "position = "+ position); 
             }
@@ -114,6 +118,9 @@ public class MainActivity extends Activity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }
@@ -149,9 +156,8 @@ public class MainActivity extends Activity
             case 3:
                 getMenuInflater().inflate(R.menu.section4, menu);
                 break;
-
             case 4:
-                getMenuInflater().inflate(R.menu.section10, menu);
+                getMenuInflater().inflate(R.menu.phy_menu, menu);
                 break;
 
             default:
@@ -217,7 +223,7 @@ public class MainActivity extends Activity
             case R.id.section3_action_clear:
                 section3Fragment.clearConfig();
                 return true;
-
+                
             case R.id.action_bt_adapter:
                 startActivity(new Intent(Settings.ACTION_BLUETOOTH_SETTINGS));
                 return true;
@@ -278,7 +284,6 @@ public class MainActivity extends Activity
                     fragment = new RemoteGattClientFragment();
                     Log.d(TAG, "["+Thread.currentThread().getStackTrace()[2].getFileName()+","+Thread.currentThread().getStackTrace()[2].getLineNumber()+","+Thread.currentThread().getStackTrace()[2].getMethodName()+"]");
                     break;
-
                 case 5:
                     fragment = new PhyTestFragment();
                     Log.d(TAG, "["+Thread.currentThread().getStackTrace()[2].getFileName()+","+Thread.currentThread().getStackTrace()[2].getLineNumber()+","+Thread.currentThread().getStackTrace()[2].getMethodName()+"]");
@@ -349,7 +354,7 @@ public class MainActivity extends Activity
             leService.le.onCreate(MainActivity.this);
             leService.bleMultiAdvController.onCreate(MainActivity.this);
             leService.bleBatchScanController.onCreate(MainActivity.this);
-            leService.blePhyTestController.onCreate(MainActivity.this);
+//            leService.blePhyTestController.onCreate(MainActivity.this);
 
             onNavigationDrawerItemSelected(0);//create real section1, the first section fragment;
             
