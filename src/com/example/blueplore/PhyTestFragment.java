@@ -51,12 +51,12 @@ public class PhyTestFragment extends PlaceholderFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		Log.d(TAG, "sensen onCreateView");
 		mMainActivity = (MainActivity)getActivity();
 		mView = inflater.inflate(R.layout.section5phy, container, false);
 		
 		mGattConnectionStatus = (TextView)mView.findViewById(R.id.section5_connection_status);
 		mCurrentPhyTextView = (TextView)mView.findViewById(R.id.section5_current_phy);
-		mSetPhyTypeSpinner = (Spinner)mView.findViewById(R.id.section5_set_phy_spinner);
 		
 		mConnectedDeviceListView = (ListView)mView.findViewById(R.id.section5_device_list_view);
 		deviceList = new ArrayList<BlePhyTestConfig>();
@@ -77,7 +77,7 @@ public class PhyTestFragment extends PlaceholderFragment {
 
 		mConnectedDeviceListView.setAdapter(adapter);
 
-		return super.onCreateView(inflater, container, savedInstanceState);
+		return mView;
 	}
 	
     public void setPhy(BluetoothDevice dev, int tx, int rx) {

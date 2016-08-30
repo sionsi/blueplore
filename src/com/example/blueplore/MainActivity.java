@@ -354,7 +354,7 @@ public class MainActivity extends Activity
             leService.le.onCreate(MainActivity.this);
             leService.bleMultiAdvController.onCreate(MainActivity.this);
             leService.bleBatchScanController.onCreate(MainActivity.this);
-//            leService.blePhyTestController.onCreate(MainActivity.this);
+            leService.blePhyTestController.onCreate(MainActivity.this);
 
             onNavigationDrawerItemSelected(0);//create real section1, the first section fragment;
             
