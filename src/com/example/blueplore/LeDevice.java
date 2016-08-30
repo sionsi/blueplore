@@ -639,6 +639,8 @@ class LeGattClientCallback extends BluetoothGattCallback {
         switch (newState) {
         case BluetoothProfile.STATE_CONNECTED:
             leDevice.deviceState = Macro.BleDeviceStateConnected;
+            //mPhyDevicetList
+            mMainActivity.leService.blePhyTestController.addPhyTestDevice(gatt.getDevice());
             boolean res = gatt.discoverServices();
             if (false == res) {
                 mMainActivity.runOnUiThread(new Runnable() {
@@ -655,6 +657,7 @@ class LeGattClientCallback extends BluetoothGattCallback {
             break;
         case BluetoothProfile.STATE_DISCONNECTED:
             mMainActivity.leService.le.deleteDeviceByAddr(address);
+            mMainActivity.leService.blePhyTestController.removePhyTestDevice(gatt.getDevice());
             break;
         }
         
@@ -669,6 +672,10 @@ class LeGattClientCallback extends BluetoothGattCallback {
                 
                 if ((mMainActivity.section4Fragment != null) && (mMainActivity.section4Fragment.mAdapter != null)) {
                     mMainActivity.section4Fragment.mAdapter.notifyDataSetChanged();
+                }
+                
+                if ((mMainActivity.mPhyFragment != null) && (mMainActivity.mPhyFragment.mAdapter != null)) {
+                    mMainActivity.mPhyFragment.mAdapter.notifyDataSetChanged();
                 }
             }
         });

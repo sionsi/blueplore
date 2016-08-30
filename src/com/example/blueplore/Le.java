@@ -1124,35 +1124,45 @@ class BlePhyTestConfig {
     public BluetoothDevice getDevice() {
     	return connected_device;
     }
+    
+    public int getTxPhy() {
+    	return tx_phy;
+    }
+    
+    public int getRxPhy() {
+    	return rx_phy;
+    }
 }
 
 
 class BlePhyTestController {
     private static final String TAG = "BlePhyTestController";
-    public List<BlePhyTestConfig> mPhyTestList = new ArrayList<BlePhyTestConfig>();//used within BlePhyTestConfig
+    public ArrayList<BlePhyTestConfig> mPhyDevicetList = new ArrayList<BlePhyTestConfig>();//used within BlePhyTestConfig
     public MainActivity mMainActivity;
 
     public void onCreate(MainActivity mainActivity) {
         mMainActivity = mainActivity;
+        BluetoothDevice temp_device;
+        
         
     }
 
 	public void addPhyTestDevice(BluetoothDevice device) {
 		BlePhyTestConfig conf = new BlePhyTestConfig(device);
 		
-        mPhyTestList.add(conf);
+		mPhyDevicetList.add(conf);
     }
 	
 	public void removePhyTestDevice(BluetoothDevice device) {
 		BlePhyTestConfig conf = new BlePhyTestConfig(device);
 		int xx = 0;
-		for(xx = 0; xx < mPhyTestList.size(); xx++) {
-			if(mPhyTestList.get(xx).getDevice().equals(device)) {
+		for(xx = 0; xx < mPhyDevicetList.size(); xx++) {
+			if(mPhyDevicetList.get(xx).getDevice().equals(device)) {
 				Log.d(TAG, "FOUND device to remove:" + device.getAddress().toString());
-				mPhyTestList.remove(xx);
+				mPhyDevicetList.remove(xx);
 			}
 		}
-        if(xx == mPhyTestList.size()) {
+        if(xx == mPhyDevicetList.size()) {
         	Log.e(TAG, "Not Find device to remove:" + device.getAddress().toString());
         }
     }

@@ -26,19 +26,14 @@ public class PhyTestFragment extends PlaceholderFragment {
     private MainActivity mMainActivity;
     private View mView;
     
-    
+    public SimpleAdapter mPhyListAdapter;
     public TextView mCurrentPhyTextView;
     public TextView mCurrentChannelTextView;
     public TextView mGattConnectionStatus;
+    public phyTestAdapter mAdapter;
     
     private Spinner mSetPhyTypeSpinner;
     private ListView mConnectedDeviceListView;
-    
-    private ArrayList<BlePhyTestConfig> deviceList;
-    
-    private List<Map <String,Object> >  mInfos;
-    
-    String[] mPhyTypeSpinnerValue = { "Choose", "1M", "2M", "coded(s=2)", "coded(s=8)" };
     
     private String[] info_Address={"40:45:32:00:01:02","40:45:32:00:01:02","40:45:32:00:01:02"};
     private String[] info_Name={"aa","bb","cc"};
@@ -59,23 +54,9 @@ public class PhyTestFragment extends PlaceholderFragment {
 		mCurrentPhyTextView = (TextView)mView.findViewById(R.id.section5_current_phy);
 		
 		mConnectedDeviceListView = (ListView)mView.findViewById(R.id.section5_device_list_view);
-		deviceList = new ArrayList<BlePhyTestConfig>();
-		
-		mInfos= new ArrayList <Map <String,Object> >();
-		
-		for(int i = 0; i < info_Address.length; i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put(item_name[0], info_Address[i]);
-			map.put(item_name[1], info_Name[i]);
-			map.put(item_name[2], info_PhyStatus[i]);
-			mInfos.add(map);
-		}
 
-
-		SimpleAdapter adapter = new SimpleAdapter(getActivity(), mInfos, R.layout.phy_list,
-				                                  item_name, item_resource);
-
-		mConnectedDeviceListView.setAdapter(adapter);
+		mAdapter = new phyTestAdapter(mMainActivity, mMainActivity.leService.blePhyTestController.mPhyDevicetList);
+		mConnectedDeviceListView.setAdapter(mAdapter);
 
 		return mView;
 	}
@@ -87,5 +68,37 @@ public class PhyTestFragment extends PlaceholderFragment {
     public void getPhy(BluetoothDevice dev) {
     	Log.d(TAG, "get phy:");
     }
+    
+    
+    public class phyTestAdapter extends ArrayAdapter<BlePhyTestConfig> {
+        public phyTestAdapter(Context context, ArrayList<BlePhyTestConfig> users) {
+           super(context, 0, users);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+           // Get the data item for this position
+        	BlePhyTestConfig phy = getItem(position);    
+           // Check if an existing view is being reused, otherwise inflate the view
+           if (convertView == null) {
+              convertView = LayoutInflater.from(getContext()).inflate(R.layout.phy_list, parent, false);
+           }
+           // Lookup view for data population
+           TextView tvAddr = (TextView) convertView.findViewById(R.id.phy_list_device_addr);
+           TextView tvName = (TextView) convertView.findViewById(R.id.phy_list_device_name);
+           TextView tvPhy = (TextView) convertView.findViewById(R.id.phy_list_current_phy);
+           // Populate the data into the template view using the data object
+           tvAddr.setText(phy.getDevice().getAddress());
+           tvName.setText(phy.getDevice().getName());
+           tvPhy.setText("Tx PHY:" + phy.getTxPhy() + "    Rx PHY:" + phy.getRxPhy());
+           // Return the completed view to render on screen
+           return convertView;
+       }
+    }
 
 }
+
+
+
+
+
