@@ -1187,10 +1187,24 @@ class BlePhyTestController {
 	
 	public void setPhy(BluetoothDevice dev, int tx, int rx) {
     	Log.d(TAG, "set phy" + dev.getAddress().toString() +" phy: tx=" + tx + "; rx=" + rx);
+    	LeDevice le_dev = mMainActivity.leService.le.searchDeviceListByAddr(dev.getAddress());
+    	if(le_dev != null) {
+    		Log.d(TAG, "phy: find correct le_dev");
+    	//le_dev.bluetoothGatt.setPhy(tx, rx, 0);
+    	} else {
+    		Log.e(TAG, "set phy ERROR");
+    	}
     }
     
     public void getPhy(BluetoothDevice dev) {
-    	Log.d(TAG, "get phy:");
+    	Log.d(TAG, "get phy for device :" + dev.getAddress().toString());
+    	LeDevice le_dev = mMainActivity.leService.le.searchDeviceListByAddr(dev.getAddress());
+    	if(le_dev != null) {
+    		Log.d(TAG, "phy: find correct le_dev");
+    	//le_dev.bluetoothGatt.readPhy();
+    	} else {
+    		Log.e(TAG, "read phy ERROR");
+    	}
     }
 }
 

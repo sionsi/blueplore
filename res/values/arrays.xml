@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string-array name="languages">
+        <item>select</item>
         <item>1M</item>
         <item>2M </item>
         <item>coded(2)</item>

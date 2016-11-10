@@ -123,7 +123,9 @@ public class PhyTestFragment extends PlaceholderFragment {
 					// TODO Auto-generated method stub
 					//listPosition = (Integer) view.getTag();
 					Log.d(TAG, "sensen To Set Rx Phy=" + position);
-					mMainActivity.leService.blePhyTestController.mPhyDevicetList.get(listPosition).setToSetRxPhy(position);
+					BluetoothDevice dev = mMainActivity.leService.blePhyTestController.mPhyDevicetList.get(position).getDevice();
+					//mMainActivity.leService.blePhyTestController.mPhyDevicetList.get(listPosition).setToSetRxPhy(position);
+					mMainActivity.leService.blePhyTestController.getPhy(dev);
 				}
 	
 				@Override

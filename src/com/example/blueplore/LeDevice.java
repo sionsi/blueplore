@@ -523,6 +523,8 @@ class LeGattClientCallback extends BluetoothGattCallback {
         // TODO Auto-generated method stub
         super.onReadRemoteRssi(gatt, rssi, status);
     }
+    
+    
 
     @Override
     public void onMtuChanged(BluetoothGatt gatt, int mtu, int status) {
